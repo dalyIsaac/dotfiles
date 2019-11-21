@@ -1,10 +1,8 @@
 #!/bin/bash
 
-# is_wsl=$1
+# DOTFILES
 
-# sudo apt install stow
-
-# stow bash
+sudo apt install stow
 
 is_wsl=""
 if [[ $(grep microsoft /proc/version) ]]; then
@@ -18,4 +16,13 @@ dot() {
 }
 
 stow bash
+stow zsh
 dot git
+
+# zsh
+sudo apt install zsh
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+chsh -s $(which zsh) # sets default shell to zsh
