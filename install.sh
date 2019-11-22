@@ -2,6 +2,8 @@
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+sudo apt-get update
+sudo apt-get upgrade
 sudo apt install stow
 
 python3 generate.py

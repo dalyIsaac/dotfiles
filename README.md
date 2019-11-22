@@ -8,6 +8,8 @@ This repository contains dotfiles for WSL and Linux. `install.sh` generates dotf
 - `apt`
 - Python 3.6+
 
+`install.sh` requires root permissions.
+
 ## Installation
 
 ``` shell
