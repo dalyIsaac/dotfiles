@@ -3,9 +3,18 @@
 	email = isaac.daly@outlook.com
 	signingkey = 941249FA05E0F4FB
 [core]
+	editor = code --wait
+
+# env:wsl
+[core]
 	editor = /mnt/c/Users/isaac/AppData/Local/Programs/Microsoft\\ VS\\ Code/bin/code --wait
 [gpg]
 	program = /mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe
 [commit]
 	gpgsign = true
-    
+
+# env:linux
+# [gpg]
+# 	program = /mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe
+# [commit]
+# 	gpgsign = true

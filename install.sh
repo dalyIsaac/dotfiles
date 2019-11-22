@@ -1,23 +1,24 @@
 #!/bin/bash
 
-# DOTFILES
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 sudo apt install stow
 
-is_wsl=""
-if [[ $(grep microsoft /proc/version) ]]; then
-    is_wsl="wsl"
-fi
+python3 generate.py
 
-# `dot` is used if there's a difference between wsl and Linux dotfiles
-dot() {
+update() {
     local dir=$1
-    stow "$is_wsl""$dir"
+    stow -R "$dir"
 }
 
-stow bash
-stow zsh
-dot git
+exclude=("dotfiles" ".vscode")
+
+for dir in */ ; do
+    # if the directory is not excluded, then update it
+    if [[ ! "${exclude[@]}" =~ "${dir}" ]] ; then
+        update "$dir"
+    fi
+done
 
 # zsh
 sudo apt install zsh
