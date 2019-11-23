@@ -2,6 +2,7 @@
 /*/
 !generate.py
 !install.sh
+!uninstall.sh
 !dotfiles
 !.gitignore
 !.vscode
