@@ -11,3 +11,4 @@ for dir in */ ; do
 done
 
 sudo apt-get remove zsh
+rm -rf "$NVM_DIR"

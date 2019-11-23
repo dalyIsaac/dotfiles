@@ -4,6 +4,7 @@ sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 sudo apt install stow
 sudo apt install zsh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
