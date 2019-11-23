@@ -2,6 +2,8 @@
 
 This repository contains dotfiles for WSL and Linux. `install.sh` generates dotfiles for either WSL or Linux, and uses symlinks to install them.
 
+**WARNING:** `install.sh` will overwrite existing dotfiles.
+
 ## Prerequisites
 
 - `git`

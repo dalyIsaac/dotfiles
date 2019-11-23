@@ -17,7 +17,7 @@ chsh -s $(which zsh) # sets default shell to zsh
 # Adopt all previous files
 python3 generate.py
 for dir in */ ; do
-    # if the directory is not excluded, then update it
+    # if the directory is not dotfiles, then adopt it
     if [ "$dir" != "dotfiles/" ] ; then
         echo "Adopting $dir"
         stow --adopt "$dir"
@@ -27,7 +27,7 @@ done
 # Updated all dotfiles
 python3 generate.py
 for dir in */ ; do
-    # if the directory is not excluded, then update it
+    # if the directory is not dotfiles, then overwrite it
     if [ "$dir" != "dotfiles/" ] ; then
         echo "Stowing $dir"
         stow -R "$dir"
