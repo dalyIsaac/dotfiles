@@ -3,12 +3,18 @@
 import os
 import pathlib
 from enum import Enum
+from getpass import getuser
 from platform import release
 
 
 DIR = "dotfiles"
 WSL = "env:wsl"
 LINUX = "env:linux"
+
+
+VARS = {
+    "username": getuser(),
+}
 
 
 class Section(Enum):
@@ -35,6 +41,28 @@ def get_section(line: str):
         return None
 
 
+def process_line_segment(segment: str) -> str:
+    before, *after = segment.split("}")
+    if before in VARS:
+        before = VARS[before]
+    else:
+        before = f"{{var:{before}}}"
+    return before + "}".join(after)
+
+
+def process_line(line: str) -> str:
+    """
+    Performs string interpolation for variables. 
+    For example, `{var:username}` → `dalyisaac`
+    """
+    segments = line.split("{var:")
+    newline_segments = []
+    newline_segments.append(segments[0])
+    for i in range(1, len(segments)):
+        newline_segments.append(process_line_segment(segments[i]))
+    return "".join(newline_segments)
+        
+    
 def generate(in_filename: str, out_filename: str):
     """Generates the correct file based on the current environment."""
     is_wsl = True if "microsoft" in release().lower() else False
@@ -49,7 +77,7 @@ def generate(in_filename: str, out_filename: str):
                 or (is_wsl and section == Section.WSL)
                 or (not is_wsl and section == Section.Linux)
             ):
-                out_file.write(line)
+                out_file.write(process_line(line))
 
 
 def main():

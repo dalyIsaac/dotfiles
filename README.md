@@ -36,3 +36,7 @@ chmod +x install.sh
   - `install.sh` then uses stow to symlink the dotfiles.
   - `zsh`, [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh), and various `zsh` extensions are installed.
   - `zsh` is set as the default terminal.
+
+### Variables
+
+String interpolation occurs using the syntax `{var:variable_name}`. For example, `{var:username}` becomes `dalyisaac`. Variables are stored in the `VARS` dictionary in `generate.py`. If a variable is not in the dictionary, then the string interpolation is ignored - i.e. `{var:not_a_username}` remains the same. 
