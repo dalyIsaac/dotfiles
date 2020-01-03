@@ -7,7 +7,7 @@
 
 # env:wsl
 [core]
-	editor = /mnt/c/Users/isaac/AppData/Local/Programs/Microsoft\\ VS\\ Code/bin/code --wait
+	editor = /mnt/c/Users/{var:username}/AppData/Local/Programs/Microsoft\\ VS\\ Code/bin/code --wait
 [gpg]
 	program = /mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe
 [commit]
