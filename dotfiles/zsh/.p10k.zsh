@@ -46,9 +46,9 @@
       status                  # exit code of the last command
       command_execution_time  # duration of the last command
       background_jobs         # presence of background jobs
-      direnv                  # direnv status (https://direnv.net/)
+      # direnv                  # direnv status (https://direnv.net/)
       virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
-      anaconda                # conda environment (https://conda.io/)
+      # anaconda                # conda environment (https://conda.io/)
       pyenv                   # python environment (https://github.com/pyenv/pyenv)
       nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
       nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
@@ -57,24 +57,24 @@
       # go_version            # go version (https://golang.org)
       # rust_version          # rustc version (https://www.rust-lang.org)
       # dotnet_version        # .NET version (https://dotnet.microsoft.com)
-      rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
-      rvm                     # ruby version from rvm (https://rvm.io)
-      kubecontext             # current kubernetes context (https://kubernetes.io/)
-      terraform               # terraform workspace (https://www.terraform.io)
+      # rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
+      # rvm                     # ruby version from rvm (https://rvm.io)
+      # kubecontext             # current kubernetes context (https://kubernetes.io/)
+      # terraform               # terraform workspace (https://www.terraform.io)
       # aws                   # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
       # aws_eb_env            # aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/)
       # azure                 # azure account name (https://docs.microsoft.com/en-us/cli/azure)
       context                 # user@hostname
-      nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
-      ranger                  # ranger shell (https://github.com/ranger/ranger)
-      vi_mode                 # vi mode (you don't need this if you've enabled prompt_char)
+      # nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
+      # ranger                  # ranger shell (https://github.com/ranger/ranger)
+      # vi_mode                 # vi mode (you don't need this if you've enabled prompt_char)
       # vpn_ip                # virtual private network indicator
       ram                     # free RAM
       load                    # CPU load
       time                    # current time
       # public_ip             # public IP address
       # proxy                 # system-wide http/https/ftp proxy
-      battery               # internal battery
+      # battery               # internal battery
       # example               # example user-defined segment (see prompt_example function below)
   )
 
