@@ -75,7 +75,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting nvm)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting nvm ssh-agent)
+zstyle :omz:plugins:ssh-agent identities id_rsa unimelb
 
 source $ZSH/oh-my-zsh.sh
 
