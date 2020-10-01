@@ -1,9 +1,19 @@
 #!/bin/bash
 
-sudo apt-get update
-sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
-sudo apt install stow
-sudo apt install zsh
+. /etc/os-release
+OS=$ID_LIKE
+
+if [[ "$OS" = "fedora" ]]; then
+    sudo dnf upgrade
+    sudo dnf install stow
+    sudo dnf install zsh
+elif [[ "$OS" = "debian" ]]; then
+    sudo apt-get update
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
+    sudo apt install stow
+    sudo apt install zsh
+fi
+
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 
 # oh-my-zsh
@@ -13,6 +23,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 chsh -s $(which zsh) # sets default shell to zsh
+# NOTE: To set zsh on Fedora, use `sudo lchsh $USER`
 
 # dotfiles
 
