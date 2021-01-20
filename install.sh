@@ -14,7 +14,7 @@ elif [[ "$OS" = "debian" ]]; then
     sudo apt install zsh
 fi
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | zsh
 
 # oh-my-zsh
 rm -rf ~/.oh-my-zsh
