@@ -76,7 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting nvm ssh-agent)
-zstyle :omz:plugins:ssh-agent identities id_rsa unimelb
+zstyle :omz:plugins:ssh-agent identities id_ed25519 unimelb
 
 source $ZSH/oh-my-zsh.sh
 
