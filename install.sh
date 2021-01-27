@@ -7,11 +7,13 @@ if [[ "$OS" = "fedora" ]]; then
     sudo dnf upgrade
     sudo dnf install stow
     sudo dnf install zsh
+    sudo dnf install cloc
 elif [[ "$OS" = "debian" ]]; then
     sudo apt-get update
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
     sudo apt install stow
     sudo apt install zsh
+    sudo apt install cloc
 fi
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | zsh
