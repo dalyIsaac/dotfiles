@@ -1,0 +1,93 @@
+format = """
+$username\
+$hostname\
+$shlvl\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$custom\
+$cmd_duration\
+$lua\
+$jobs\
+$battery\
+$time\
+$line_break\
+$status\
+$shell\
+$character"""
+
+add_newline = true
+
+
+[cmd_duration]
+min_time = 0
+show_milliseconds = true
+
+
+[status]
+style = "red bg:#ffc800"
+symbol = "💣"
+format = '[\[$symbol $status\]]($style) '
+disabled = false
+
+
+[memory_usage]
+disabled = false
+threshold = -1
+style = "bold white"
+format = "[\\[${ram} ${ram_pct}(|S ${swap} ${swap_pct})\\]]($style) "
+
+
+[git_status]
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+
+
+[time]
+style = "bold white"
+format = "🕙 [$time]($style) "
+disabled = false
+
+
+[nodejs]
+symbol = "nodejs "

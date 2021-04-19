@@ -18,12 +18,13 @@ fi
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | zsh
 
+curl -fsSL https://starship.rs/install.sh | zsh
+
 # oh-my-zsh
 rm -rf ~/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 chsh -s $(which zsh) # sets default shell to zsh
 # NOTE: To set zsh on Fedora, use `sudo lchsh $USER`
 
@@ -32,8 +33,8 @@ chsh -s $(which zsh) # sets default shell to zsh
 # Adopt all previous files
 python3 generate.py
 for dir in */ ; do
-    # if the directory is not dotfiles, then adopt it
-    if [ "$dir" != "dotfiles/" ] ; then
+    # if the directory is not dotfiles or starship, then adopt it
+    if [ "$dir" != "dotfiles/" ] && [ "$dir" != "starship/" ] ; then
         echo "Adopting $dir"
         stow --adopt "$dir"
     fi
@@ -42,8 +43,8 @@ done
 # Updated all dotfiles
 python3 generate.py
 for dir in */ ; do
-    # if the directory is not dotfiles, then overwrite it
-    if [ "$dir" != "dotfiles/" ] ; then
+    # if the directory is not dotfiles or starship, then overwrite it
+    if [ "$dir" != "dotfiles/" ] && [ "$dir" != "starship/" ] ; then
         echo "Stowing $dir"
         stow -R "$dir"
     fi
