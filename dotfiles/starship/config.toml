@@ -38,7 +38,6 @@ $vagrant\
 $zig\
 $nix_shell\
 $conda\
-$memory_usage\
 $aws\
 $gcloud\
 $openstack\
@@ -50,6 +49,7 @@ $lua\
 $jobs\
 $battery\
 $time\
+$memory_usage\
 $line_break\
 $status\
 $shell\
@@ -72,7 +72,7 @@ disabled = false
 
 [memory_usage]
 disabled = false
-threshold = -1
+threshold = 50
 style = "bold white"
 format = "[\\[${ram} ${ram_pct}(|S ${swap} ${swap_pct})\\]]($style) "
 
