@@ -109,6 +109,12 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 
+# Ctrl+Backspace
+bindkey '^H' backward-kill-word
+
+# Ctrl+Delete
+bindkey '^[[3;5~' kill-word
+
 # env:wsl
 alias open="explorer.exe"
 alias start="explorer.exe"
