@@ -56,3 +56,8 @@ for dir in */ ; do
         stow -R "$dir"
     fi
 done
+
+# Replace xdg-open with wslview
+if grep -q WSL2 /proc/version; then
+    sudo ln -s $(which wslview) /usr/local/bin/xdg-open
+fi
