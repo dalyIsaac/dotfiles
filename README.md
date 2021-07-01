@@ -17,7 +17,7 @@ This repository contains dotfiles for WSL and Linux. `install.sh` generates dotf
 
 ``` shell
 cd ~
-git clone git@github.com:dalyIsaac/dotfiles.git
+git clone git@github.com:dalyIsaac/dotfiles.git --recurse-submodules
 cd dotfiles
 chmod +x install.sh
 ./install.sh
@@ -40,4 +40,4 @@ chmod +x install.sh
 
 ### Variables
 
-String interpolation occurs using the syntax `{var:variable_name}`. For example, `{var:username}` becomes `dalyisaac`. Variables are stored in the `VARS` dictionary in `generate.py`. If a variable is not in the dictionary, then the string interpolation is ignored - i.e. `{var:not_a_username}` remains the same. 
+String interpolation occurs using the syntax `{var:variable_name}`. For example, `{var:username}` becomes `dalyisaac`. Variables are stored in the `VARS` dictionary in `generate.py`. If a variable is not in the dictionary, then the string interpolation is ignored - i.e. `{var:not_a_username}` remains the same.
