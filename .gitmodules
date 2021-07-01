@@ -1,0 +1,6 @@
+[submodule "dotfiles/starship-config"]
+	path = dotfiles/starship-config
+	url = git@github.com:dalyIsaac/starship-config.git
+[submodule "dotfiles/starship"]
+	path = dotfiles/starship
+	url = git@github.com:dalyIsaac/starship-config.git
