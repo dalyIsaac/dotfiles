@@ -108,6 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # Golang
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:/home/dalyisaac/bin
 
 # Ctrl+Backspace
 bindkey '^H' backward-kill-word
