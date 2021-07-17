@@ -12,9 +12,7 @@
 	program = /mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe
 [commit]
 	gpgsign = true
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe
 
 # env:linux
-# [gpg]
-# 	program = /mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe
-# [commit]
-# 	gpgsign = true

@@ -62,8 +62,7 @@ export ZSH="/home/dalyisaac/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf-tab git zsh-autosuggestions fast-syntax-highlighting nvm ssh-agent)
-zstyle :omz:plugins:ssh-agent identities id_ed25519 unimelb
+plugins=(fzf-tab git zsh-autosuggestions fast-syntax-highlighting nvm)
 
 # fzf-tab config
 # disable sort when completing `git checkout`
@@ -119,7 +118,6 @@ bindkey '^[[3;5~' kill-word
 # env:wsl
 alias open="explorer.exe"
 alias start="explorer.exe"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 fix_wsl2_interop() {
     for i in $(pstree -np -s $$ | grep -o -E '[0-9]+'); do
