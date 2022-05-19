@@ -18,7 +18,7 @@ elif [[ "$OS" = "debian" ]]; then
     sudo apt install fzf
 fi
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | zsh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | zsh
 
 curl -fsSL https://starship.rs/install.sh | zsh
 
