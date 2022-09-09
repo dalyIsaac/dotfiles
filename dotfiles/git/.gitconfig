@@ -1,17 +1,20 @@
-[user]
-	name = dalyIsaac
-	email = isaac.daly@outlook.com
-	signingkey = AE39DBFDD467F3D8
 [core]
 	editor = code --wait
+[user]
+	name = Isaac Daly
+	email = isaac.daly@outlook.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC5IpIsKDfqfOh5Zfz5mw2YZFUaZIuJOQ0rdAB6D1T6q
 
 # env:wsl
 [core]
 	editor = /mnt/c/Users/{var:username}/AppData/Local/Programs/Microsoft\\ VS\\ Code/bin/code --wait
-[gpg]
-	program = /mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe
 [commit]
 	gpgsign = true
+[gpg]
+	format = ssh
+	# program = /mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe
+[gpg "ssh"]
+	program = /mnt/c/Users/{var:username}/AppData/Local/1Password/app/8/op-ssh-sign.exe
 [credential]
 	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager-core.exe
 
