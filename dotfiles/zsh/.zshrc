@@ -131,3 +131,6 @@ fix_wsl2_interop
 
 export STARSHIP_CONFIG=~/dotfiles/starship/config.toml
 eval "$(starship init zsh)"
+
+# ~/.local/bin
+export PATH=$PATH:/home/dalyisaac/.local/bin
