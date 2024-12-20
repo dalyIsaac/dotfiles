@@ -3,7 +3,9 @@
 . /etc/os-release
 OS=$ID_LIKE
 
-# If the script is running in a devcontainer, then don't upgrade the system
+echo "Setting up dotfiles for $OS"
+echo "Installing dependencies..."
+
 if [[ "$OS" = "fedora" ]]; then
     if [ -z "$REMOTE_CONTAINERS_IPC" ]; then
         sudo dnf upgrade
@@ -14,7 +16,6 @@ if [[ "$OS" = "fedora" ]]; then
     sudo dnf install cloc
     sudo dnf install fzf
 elif [[ "$OS" = "debian" ]]; then
-    # sudo apt-get update
     if [ -z "$REMOTE_CONTAINERS_IPC" ]; then
         sudo apt-get update
         sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
@@ -26,11 +27,12 @@ elif [[ "$OS" = "debian" ]]; then
     sudo apt install fzf
 fi
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | zsh
+echo "Dependencies installed"
 
+echo "Installing starship..."
 curl -fsSL https://starship.rs/install.sh | zsh
 
-# oh-my-zsh
+echo "Installing oh-my-zsh..."
 rm -rf ~/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 ZSH_PLUGIN=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
@@ -40,6 +42,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git  $ZSH_PLUGIN/
 git clone https://github.com/Aloxaf/fzf-tab                         $ZSH_PLUGIN/fzf-tab
 git clone https://github.com/zdharma/fast-syntax-highlighting.git   $ZSH_PLUGIN/fast-syntax-highlighting
 
+echo "Configuring default shell..."
 if [ "$0" != $(which zsh) ]; then
     if [ "$OS" = "debian" ]; then
         chsh -s $(which zsh) # sets default shell to zsh
@@ -48,7 +51,7 @@ if [ "$0" != $(which zsh) ]; then
     fi
 fi
 
-# dotfiles
+echo "Adopting dotfiles..."
 
 # Adopt all previous files
 python3 generate.py
