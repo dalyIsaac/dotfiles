@@ -3,15 +3,23 @@
 . /etc/os-release
 OS=$ID_LIKE
 
+# If the script is running in a devcontainer, then don't upgrade the system
 if [[ "$OS" = "fedora" ]]; then
-    sudo dnf upgrade
+    if [ -z "$REMOTE_CONTAINERS_IPC" ]; then
+        sudo dnf upgrade
+    fi
+
     sudo dnf install stow
     sudo dnf install zsh
     sudo dnf install cloc
     sudo dnf install fzf
 elif [[ "$OS" = "debian" ]]; then
-    sudo apt-get update
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
+    # sudo apt-get update
+    if [ -z "$REMOTE_CONTAINERS_IPC" ]; then
+        sudo apt-get update
+        sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
+    fi
+
     sudo apt install stow
     sudo apt install zsh
     sudo apt install cloc
