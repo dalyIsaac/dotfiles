@@ -1,7 +1,13 @@
 #!/bin/bash
 
-. /etc/os-release
-OS=$ID_LIKE
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS=$ID
+elif type lsb_release >/dev/null 2>&1; then
+    OS=$(lsb_release -si)
+else
+    OS=$(uname -s)
+fi
 
 echo "Setting up dotfiles for $OS"
 echo "Installing dependencies..."
