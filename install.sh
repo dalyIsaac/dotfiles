@@ -40,8 +40,13 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git  $ZSH_PLUGIN/
 git clone https://github.com/Aloxaf/fzf-tab                         $ZSH_PLUGIN/fzf-tab
 git clone https://github.com/zdharma/fast-syntax-highlighting.git   $ZSH_PLUGIN/fast-syntax-highlighting
 
-chsh -s $(which zsh) # sets default shell to zsh
-# NOTE: To set zsh on Fedora, use `sudo lchsh $USER`
+if [ "$0" != $(which zsh) ]; then
+    if [ "$OS" = "debian" ]; then
+        chsh -s $(which zsh) # sets default shell to zsh
+    elif [ "$OS" = "fedora" ]; then
+        sudo lchsh $USER
+    fi
+fi
 
 # dotfiles
 
